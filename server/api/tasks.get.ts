@@ -1,13 +1,15 @@
-export default defineEventHandler(async () => {
-    
+import { eq } from "drizzle-orm";
+import z from "zod";
+import { tasks } from "~~/server/database/schema";
+import db from "~~/server/database";
 
-    return [{
-        id: 1,
-        title: "Learn Vue",
-        done: false,
-    },{
-        id: 2,
-        title: "Learn Nuxt",
-        done: false,
-    }];
+
+
+export default defineEventHandler(async (event) => {
+    
+    const task = await db.query.tasks.findMany({
+        with: {},
+    })
+    return task;
+    
 });
