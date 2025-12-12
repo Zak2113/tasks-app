@@ -14,5 +14,10 @@
     .button-container{
         display: flex;
         justify-content: end;
+        gap: 1rem;
+    }
+    .task-container{
+        display: flex
+        ;
     }
 </style>
